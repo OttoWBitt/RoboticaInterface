@@ -1,0 +1,52 @@
+<Container>:
+    rows: 1
+	waistValue: lb_Waist
+	shoulderValue: lb_Shoulder
+	elbowValue: lb_Elbow
+	wristUpDownValue: lb_WristUpDown
+	wristTurnValue: lb_WristTurn
+	clawValue: lb_Claw
+	
+	BoxLayout:
+		orientation:'vertical'
+		Label:
+			id:lb_Waist
+			text: '10'
+		WaistSlider:
+			on_value: root.new_valueWaist(*args)
+		Label:
+			id:lb_Shoulder
+			text: '100'	
+		ShoulderSlider:
+			on_value: root.new_valueShoulder(*args)
+		Label:
+			id:lb_Elbow
+			text: '110'	
+		ElbowSlider:
+			on_value: root.new_valueElbow(*args)
+		Label:
+			id:lb_WristUpDown
+			text: '130'	
+		WristUpDownSlider:
+			on_value: root.new_valueWristUpDown(*args)
+		Label:
+			id:lb_WristTurn
+			text: '150'
+		WristTurnSlider:
+			on_value: root.new_valueWristTurn(*args)
+		Label:
+			id:lb_Claw
+			text: '100'	
+		ClawSlider:
+			on_value: root.new_valueClaw(*args)
+		GridLayout:
+			cols:3
+			SpeedToggleButton:
+				text: 'Slow'
+				state: 'down'
+			SpeedToggleButton:
+				text: 'Medium'
+			SpeedToggleButton:
+				text: 'Fast'
+		SendButton:
+			
