@@ -6,6 +6,8 @@
 	wristUpDownValue: lb_WristUpDown
 	wristTurnValue: lb_WristTurn
 	clawValue: lb_Claw
+	urlValue: lb_Url
+	ipValue: lb_ip
 	
 	BoxLayout:
 		orientation:'vertical'
@@ -44,9 +46,19 @@
 			SpeedToggleButton:
 				text: 'Slow'
 				state: 'down'
+				on_press: root.toggleButtonPress(1)
 			SpeedToggleButton:
 				text: 'Medium'
+				on_press: root.toggleButtonPress(2)
 			SpeedToggleButton:
 				text: 'Fast'
+				on_press: root.toggleButtonPress(3)
+		TextInput:
+			id:lb_ip
+			text:'192.168.16.15:5000'
+			multiline: False
+		Label:
+			id:lb_Url
+			text: ''
 		SendButton:
-			
+			on_release: root.onClickButton(*args)

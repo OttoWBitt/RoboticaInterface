@@ -3,6 +3,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
 from kivy.lang import Builder
 from kivy.uix.slider import Slider
 from os import listdir 
@@ -36,6 +37,7 @@ class SendButton(Button):
 	pass
 
 class Container(BoxLayout):
+	speedValue = 1
 	def new_valueWaist(self, *args):
 		self.waistValue.text = str(int(args[1]));
 	def new_valueShoulder(self, *args):
@@ -48,12 +50,10 @@ class Container(BoxLayout):
 		self.wristTurnValue.text = str(int(args[1]));
 	def new_valueClaw(self, *args):
 		self.clawValue.text = str(int(args[1]));
-	def new_speedSlow(self, *args):
-		pass
-	def new_speedMedium(self, *args):
-		pass
-	def new_speedFast(self, *args):
-		pass
+	def onClickButton(self, *args):
+		self.urlValue.text = self.ipValue.text+'/'+ self.waistValue.text + '|'+ self.shoulderValue.text + '|'+ self.elbowValue.text + '|'+ self.wristUpDownValue.text + '|'+ self.wristTurnValue.text + '|'+ self.clawValue.text + '|' + str(self.speedValue) + '|'
+	def toggleButtonPress(self,buttonID):
+		self.speedValue = buttonID
 
 class MainApp(App):
 
